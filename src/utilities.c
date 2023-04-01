@@ -82,3 +82,24 @@ void establishPortOut(u8 PXX, u8 PORT_X){
         acot2(PORT_X,7);
     }
 }
+
+void configTimerCMR(u8 TIMER_X, u8 PRESCALER, u16 CMR){
+    cli();
+    if(TIMER_X == 0){
+        TCCR0A = (1 << WGM01);
+        OCR0A = CMR;
+        TCCR0B |= PRESCALER;
+        TIMSK0 = (1 << OCIE0A);
+    }else if(TIMER_X == 1){
+        TCCR1A = (1 << WGM11);
+        OCR1A = CMR;
+        TCCR1B |= PRESCALER;
+        TIMSK1 |= (1 << OCIE1A);
+    }else if(TIMER_X == 2){
+        TCCR1A = (1 << WGM21);
+        OCR1A = CMR;
+        TCCR1B |= PRESCALER;
+        TIMSK1 = (1 << OCIE2A);
+    }
+    sei();
+}
