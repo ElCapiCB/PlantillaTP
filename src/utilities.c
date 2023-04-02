@@ -91,15 +91,15 @@ void configTimerCMR(u8 TIMER_X, u8 PRESCALER, u16 CMR){
         TCCR0B |= PRESCALER;
         TIMSK0 = (1 << OCIE0A);
     }else if(TIMER_X == 1){
-        TCCR1A = (1 << WGM11);
+        //TCCR1A = (1 << WGM11);
         OCR1A = CMR;
         TCCR1B |= PRESCALER;
         TIMSK1 |= (1 << OCIE1A);
     }else if(TIMER_X == 2){
-        TCCR1A = (1 << WGM21);
-        OCR1A = CMR;
-        TCCR1B |= PRESCALER;
-        TIMSK1 = (1 << OCIE2A);
+        TCCR2A = (1 << WGM21);
+        OCR2A = CMR;
+        TCCR2B |= PRESCALER;
+        TIMSK2 = (1 << OCIE2A);
     }
     sei();
 }
