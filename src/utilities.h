@@ -30,6 +30,5 @@ typedef boolean bit;
 
 void establishPortIn(u8 PXX, u8 PORT_X, bit PULL_UP);
 void establishPortOut(u8 PXX, u8 PORT_X);
-void configTimerCMR(u8 TIMER_X, u8 PRESCALER, u16 CMR);
 
 #endif
