@@ -16,6 +16,11 @@ typedef boolean bit;
 Los tipos "u" seguidos por un número se refieren a una variable sin signo de x cantidad de bits. Lo mismo para los que empiezan con "i", estos se refieren a un dato tipo int normal con x cantidad de bits.
 Además de definir bit como una variable de un bit valga la redundancia.
 
+
+------------
+
+
+
 Esta plantilla trae funciones para establecer los pines como entrada o salida.
 ```c
 void establishPortIn(u8 PXX, u8 PORT_X, bit PULL_UP);
@@ -41,6 +46,36 @@ en PORT_X podes colocar un valor del 0 al 2 para definir en qué puerto estas ac
 y en PULL_UP se coloca un 1 si queres activar ✔️ la resistencia PULL_UP o en 0 si no ❌
 
 todo lo anterior se aplica para ambas funciones a excepción de PULL_UP .
+
+
+------------
+
+
+
+Se añadio también una función para configurar el timer 🕒
+```c
+void configTimerCMR(u8 TIMER_X, u8 PRESCALER, u16 CMR);
+```
+En TIMER_X se tiene que colocar que timer se va a usar, se debe poner un numero del 0 al 2 o las macros:
+
+```c
+#define TIMER0 0
+#define TIMER1 1
+#define TIMER2 2
+```
+
+En PRESCALER tenes que poner un numero del 0 al 7, estos correspondientes a las tablas de cada timer:
+Para el timer0 y el timer1 es la siguiente tabla:
+
+![Prescaler timer0 y timer1](./Prescaler.png)
+
+Para el timer 2 es la siguiente tabla:
+
+![Prescaler timer 2](./Arduino-Timer-2-Preescala.png "Prescaler timer 2")
+
+En CMR tenes que poner el número en el que el timer resetea, CMR significa Compare on Match Register.
+
+------------
 
 Acá te dejo una imagen del pinout del arduino para que labures 🛠️ más cómodo:
 ![Arduino nano pinout](./Arduino-Nano-Pinout.png "Arduino nano pinout")

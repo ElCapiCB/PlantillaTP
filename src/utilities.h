@@ -5,6 +5,10 @@
 #define PORT_D 0
 #define PORT_B 1
 #define PORT_C 2
+#define TIMER0 0
+#define TIMER1 1
+#define TIMER2 2
+
 
 #define PX0 0b00000001
 #define PX1 0b00000010
