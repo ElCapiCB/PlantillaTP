@@ -2,9 +2,9 @@
 #define UTILITIES_H
 #include <Arduino.h>
 
-#define PORT_D 0
-#define PORT_B 1
-#define PORT_C 2
+#define PORT_D (uint8_t)0
+#define PORT_B (uint8_t)1
+#define PORT_C (uint8_t)2
 
 #define PX0 (uint8_t)0b00000001
 #define PX1 (uint8_t)0b00000010

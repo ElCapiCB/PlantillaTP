@@ -28,20 +28,20 @@ void establishPortOut(u8 PXX, u8 PORT_X);
 ```
 en PXX podes colocar un valor del 0 al 7 representando los PD0 a PD7, los PB0 a PB5 o los PC0 a PC5, aunque para hacerlo más fácil se definieron las siguientes macros 🤓:
 ```c
-#define PX0 0b00000001
-#define PX1 0b00000010
-#define PX2 0b00000100
-#define PX3 0b00001000
-#define PX4 0b00010000
-#define PX5 0b00100000
-#define PX6 0b01000000
-#define PX7 0b10000000
+#define PX0 (uint8_t)0b00000001
+#define PX1 (uint8_t)0b00000010
+#define PX2 (uint8_t)0b00000100
+#define PX3 (uint8_t)0b00001000
+#define PX4 (uint8_t)0b00010000
+#define PX5 (uint8_t)0b00100000
+#define PX6 (uint8_t)0b01000000
+#define PX7 (uint8_t)0b10000000
 ```
 en PORT_X podes colocar un valor del 0 al 2 para definir en qué puerto estas actuando, aunque acá también podes usar las siguientes macros:
 ```c
-#define PORT_D 0
-#define PORT_B 1
-#define PORT_C 2
+#define PORT_D (uint8_t)0
+#define PORT_B (uint8_t)1
+#define PORT_C (uint8_t)2
 ```
 y en PULL_UP se coloca un 1 si queres activar ✔️ la resistencia PULL_UP o en 0 si no ❌
 
@@ -74,6 +74,31 @@ Para el timer 2 es la siguiente tabla:
 ![Prescaler timer 2](./Arduino-Timer-2-Preescala.png "Prescaler timer 2")
 
 En CMR tenes que poner el número en el que el timer resetea, CMR significa Compare on Match Register.
+
+Ademas de la funcion del timer hay 4 estructuras de datos para hacer el delta de tiempo.
+```c
+typedef struct DifferentialPairsU8{
+    u8 A;
+    u8 B;
+} DPU8;
+
+typedef struct DifferentialPairsU16{
+    u16 A;
+    u16 B;
+} DPU16;
+
+typedef struct DifferentialPairsU32{
+    u32 A;
+    u32 B;
+} DPU32;
+
+typedef struct DifferentialPairsU64{
+    u64 A;
+    u64 B;
+} DPU64;
+```
+
+Les dejo la [pagina](https://timer-interrupt-calculator.simsso.de/ "pagina") para calcular el timer acá.
 
 ------------
 
