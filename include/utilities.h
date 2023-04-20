@@ -2,12 +2,9 @@
 #define UTILITIES_H
 #include <Arduino.h>
 
-#define PORT_D (uint8_t)0
-#define PORT_B (uint8_t)1
-#define PORT_C (uint8_t)2
-#define TIMER0 (uint8_t)0
-#define TIMER1 (uint8_t)1
-#define TIMER_2 (uint8_t)2
+#define PORT_D 0
+#define PORT_B 1
+#define PORT_C 2
 
 #define PX0 (uint8_t)0b00000001
 #define PX1 (uint8_t)0b00000010
@@ -31,10 +28,28 @@ typedef int32_t i32;
 typedef int64_t i64;
 typedef boolean bit;
 
-void establishPortIn(u8 PXX, u8 PORT_X, bit PULL_UP); // Establece los pines de un puerto en entrada (tanto te cuesta el ingles que leiste esto 😕?)
-void establishPortOut(u8 PXX, u8 PORT_X); // Establece los pines de un puerto en salida (tanto te cuesta el ingles que leiste esto 😕?)
+typedef struct DifferentialPairsU8{
+    u8 A;
+    u8 B;
+} DPU8;
 
-void configTimerCMR(u8 TIMER_X, u8 PRESCALER, u16 CMR); // Una funcion que configura el timer de forma mas amable a la vista 😉
+typedef struct DifferentialPairsU16{
+    u16 A;
+    u16 B;
+} DPU16;
 
+typedef struct DifferentialPairsU32{
+    u32 A;
+    u32 B;
+} DPU32;
+
+typedef struct DifferentialPairsU64{
+    u64 A;
+    u64 B;
+} DPU64;
+
+void establishPortIn(u8 PXX, u8 PORT_X, bit PULL_UP);
+void establishPortOut(u8 PXX, u8 PORT_X);
+void configTimerCMR(u8 TIMER_X, u8 PRESCALER, u16 CMR);
 
 #endif
