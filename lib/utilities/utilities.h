@@ -28,28 +28,58 @@ typedef int32_t i32;
 typedef int64_t i64;
 typedef boolean bit;
 
+
+/// @brief Estructura que contiene variables para el manejo de contadores de tiempo o para hacer diferencias
 typedef struct DifferentialPairsU8{
     u8 A;
     u8 B;
 } DPU8;
 
+
+/// @brief Estructura que contiene variables para el manejo de contadores de tiempo o para hacer diferencias
 typedef struct DifferentialPairsU16{
     u16 A;
     u16 B;
 } DPU16;
 
+
+/// @brief Estructura que contiene variables para el manejo de contadores de tiempo o para hacer diferencias
 typedef struct DifferentialPairsU32{
     u32 A;
     u32 B;
 } DPU32;
 
+
+/// @brief Estructura que contiene variables para el manejo de contadores de tiempo o para hacer diferencias
 typedef struct DifferentialPairsU64{
     u64 A;
     u64 B;
 } DPU64;
 
+/**
+ * @brief Esta funcion establece los pines del puerto en entrada
+ * 
+ * @param PXX Pines a establecer EJ(PX1 | PX2 | PX3)
+ * @param PORT_X Puerto a utilizar
+ * @param PULL_UP Habilita la pull-up
+ */
 void establishPortIn(u8 PXX, u8 PORT_X, bit PULL_UP);
+
+/**
+ * @brief Esta funcion establece los pines del puerto en salida
+ * 
+ * @param PXX Pines a establecer EJ(PX1 | PX2 | PX3)
+ * @param PORT_X Puerto a utilizar
+ */
 void establishPortOut(u8 PXX, u8 PORT_X);
+
+/**
+ * @brief Configura el timer
+ * 
+ * @param TIMER_X Que timer se va a utilizar
+ * @param PRESCALER Selecciona el prescaler del timer
+ * @param CMR Establece el numero en el que el contador resetea y ejecuta la interrupcion
+ */
 void configTimerCMR(u8 TIMER_X, u8 PRESCALER, u16 CMR);
 
 #endif
